@@ -1,0 +1,19 @@
+to: html
+
+html-math-method:
+  method: mathml
+
+citeproc: true
+standalone: true
+
+eol: lf
+
+template: _pandoc/template.html
+metadata-file: _pandoc/metadata.yaml
+
+section-divs: true
+
+filters:
+  - _pandoc/promote-to-title.lua
+  - _pandoc/md-to-html.lua
+  - _pandoc/anchors.lua

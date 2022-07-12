@@ -1,0 +1,264 @@
+/*! Section: Configuration */
+
+:root {
+  --font-main: "Noto Sans", "Noto Sans Math", sans-serif;
+  --font-math: "Noto Sans Math", "Noto Sans", sans-serif;
+  --font-mono: "Noto Sans Mono", monospace;
+
+  --color-link: #3366cc;
+
+  --color-foreground: #1b1e20;
+  --color-background: #ffffff;
+
+  --color-highlight-comments: #dbf1ff;
+  --color-highlight-literals: #fffabc;
+  /* --color-highlight-keywords: #f1fadf; */
+  /* --color-highlight-functions: #f9e0ff; */
+}
+
+:lang(en) {
+  --figure-label: "Figure";
+  --table-label: "Table";
+}
+
+:lang(pt) {
+  --figure-label: "Figura";
+  --table-label: "Tabela";
+}
+
+/*! Section: Boxes */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+/*! Section: Document */
+
+body {
+  color: var(--color-foreground);
+  background: var(--color-background);
+
+  margin: 4rem;
+}
+
+main {
+  max-width: 68ch;
+  margin: 0 auto;
+}
+
+article {
+  counter-reset: table figure;
+}
+
+h1 {
+  text-align: center;
+}
+
+nav {
+  text-align: right;
+}
+
+/*! Section: Typography */
+
+body {
+  line-height: 1.6;
+  font-family: var(--font-main);
+}
+
+math {
+  font-family: var(--font-math);
+}
+
+math[display="block"] {
+  /*font-size: 120%;*/
+}
+
+pre,
+code,
+kbd,
+samp,
+tt,
+var {
+  font-family: var(--font-mono);
+}
+
+article {
+  hyphens: auto;
+  text-align: justify;
+}
+
+/*! Section: Anchors */
+
+a {
+  text-decoration: none;
+  color: var(--color-link);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a[href^="http"]::after {
+  content: "\00A0[↪]";
+}
+
+/*! Section: Heading */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: lighter;
+}
+
+h5,
+h6 {
+  display: inline;
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+/*! Section: Code */
+
+pre,
+math[display="block"] {
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+pre code {
+  padding: 0;
+}
+
+/*! Section: Lists */
+
+ul {
+  list-style-type: disc;
+}
+
+:is(li, dd, dt):not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+dt {
+  font-style: italic;
+}
+
+dt em {
+  font-style: normal;
+}
+
+/*! Section: Embedding */
+
+img,
+video,
+svg,
+embed,
+object {
+  display: block;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  max-width: 100%;
+}
+
+figure {
+  counter-increment: figure;
+  margin: 1rem 3rem;
+}
+
+figcaption {
+  margin: 0.5rem auto;
+}
+
+figcaption::before {
+  content: var(--figure-label) "\00A0"counter(figure) ". ";
+
+  font-style: normal;
+  font-weight: bold;
+}
+
+/*! Section: Booktabs */
+
+table {
+  counter-increment: table;
+  margin: 1rem auto;
+  border-collapse: collapse;
+}
+
+table caption {
+  margin: 0.5rem auto;
+}
+
+table caption::before {
+  content: var(--table-label) "\00A0"counter(table) ". ";
+
+  font-style: normal;
+  font-weight: bold;
+}
+
+table :is(thead, tbody) tr :is(th, td) {
+  padding: 0.2rem 2ch;
+}
+
+table thead tr :is(th, td) {
+  border-top: 0.125rem solid;
+  border-bottom: 0.0625rem solid;
+}
+
+table tbody tr:last-child :is(th, td) {
+  border-bottom: 0.125rem solid;
+}
+
+/*! Section: Highlight */
+
+code :is(.co, .in) {
+  background: var(--color-highlight-comments);
+}
+
+code :is(.dv, .fl, .st) {
+  background: var(--color-highlight-literals);
+}
+
+code :is(.fu) {
+  background: var(--color-highlight-functions);
+}
+
+code :is(.im, .kw, .cf) {
+  background: var(--color-highlight-keywords);
+}

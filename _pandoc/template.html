@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="$lang$">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- $if(site-title)$ -->
+    <title>$title$ — $site-title$</title>
+    <!-- $else$ -->
+    <title>$title$</title>
+    <!-- $ endif $  -->
+    <meta name="generator" content="pandoc" />
+    <!-- $for(author-meta)$ -->
+    <meta name="author" content="$author-meta$" />
+    <!-- $endfor$ -->
+    <!-- $if(date-meta)$ -->
+    <meta name="date" content="$date-meta$" />
+    <!-- $endif$ -->
+    <meta name="theme-color" content="#3366cc" />
+    <link rel="stylesheet" href="_assets/style.css" />
+    <link rel="preconnect" crossorigin href="https://fonts.googleapis.com" />
+    <link rel="preconnect" crossorigin href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      crossorigin
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Math&family=Noto+Sans+Mono:wght@300;400&family=Noto+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700"
+    />
+  </head>
+  <body>
+    <main>
+      <article>$body$</article>
+      <nav>
+        <small>
+          <a href="index.html">&larr; Back to Index</a>
+          <!-- $if(github-repository)$ -->
+          <span role="none">&middot;</span>
+          <a href="$github-repository$/discussions">Discuss</a>
+          <span role="none">&middot;</span>
+          <a href="$github-repository$/commits/master/$sourcefile$">History</a>
+          <!-- $endif$ -->
+        </small>
+      </nav>
+    </main>
+  </body>
+</html>
